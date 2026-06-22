@@ -49,11 +49,11 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'bg-void/90 backdrop-blur-lg' : 'bg-transparent'
+        className={`fixed left-0 right-0 top-4 z-50 transition-all duration-500 pointer-events-none ${
+          scrolled ? 'bg-void/70 backdrop-blur-lg border border-base-border/50' : 'bg-transparent'
         }`}
       >
-        <div className="flex items-center justify-between px-6 lg:px-10 py-4 max-w-[1400px] mx-auto">
+        <div className="pointer-events-auto flex items-center justify-between px-6 lg:px-10 py-4 mx-auto max-w-[1400px] rounded-[999px] shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
           <a href="#" className="flex items-center gap-3">
             <img src="/logo.png" alt="Global Media Wings" className="h-10 w-auto object-contain" />
             <span className="hidden sm:block text-amber font-grotesk font-medium text-lg uppercase tracking-wide">
