@@ -57,8 +57,8 @@ export default function Hero() {
           className="w-full lg:w-[55%] h-[60vh] lg:h-auto relative opacity-0"
         >
           <img
-            src="/hero-crane.jpg"
-            alt="Heavy lift crane operation"
+            src="/ChatGPT%20Image%20Jun%2022,%202026,%2011_36_17%20PM.png"
+            alt="Hero image"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-void/20 lg:block hidden" />

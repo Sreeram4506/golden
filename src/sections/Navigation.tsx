@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useState } from 'react';
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
@@ -14,46 +13,29 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      setScrolled(window.scrollY > 0);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-      const links = document.querySelectorAll('.menu-link-item');
-      gsap.fromTo(
-        links,
-        { yPercent: 100, opacity: 0 },
-        { yPercent: 0, opacity: 1, stagger: 0.08, duration: 0.6, ease: 'power3.out', delay: 0.2 }
-      );
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [menuOpen]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMenuOpen(false);
     const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <>
+    <header className="sticky top-0 z-50">
       <nav
-        className={`fixed left-0 right-0 top-4 z-50 transition-all duration-500 pointer-events-none ${
-          scrolled ? 'bg-void/70 backdrop-blur-lg border border-base-border/50' : 'bg-transparent'
-        }`}
+        className={[
+          'w-full border-b border-base-border/40 transition-colors duration-300',
+          scrolled ? 'bg-void/85 backdrop-blur-lg' : 'bg-void/55 backdrop-blur',
+        ].join(' ')}
       >
-        <div className="pointer-events-auto flex items-center justify-between px-6 lg:px-10 py-4 mx-auto max-w-[1400px] rounded-[999px] shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
             <img src="/logo.png" alt="Global Media Wings" className="h-10 w-auto object-contain" />
             <span className="hidden sm:block text-amber font-grotesk font-medium text-lg uppercase tracking-wide">
@@ -75,9 +57,10 @@ export default function Navigation() {
           </div>
 
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col gap-[5px] p-2 group"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden flex flex-col gap-[5px] p-2"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <span
               className={`block w-6 h-[2px] bg-text-primary transition-all duration-300 ${
@@ -98,45 +81,23 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Fullscreen Menu Overlay */}
-      <div className={`fullscreen-menu ${menuOpen ? 'active' : ''}`}>
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="absolute top-6 right-6 p-2 text-text-primary hover:text-amber transition-colors z-10"
-          aria-label="Close menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <line x1="4" y1="4" x2="20" y2="20" />
-            <line x1="20" y1="4" x2="4" y2="20" />
-          </svg>
-        </button>
-
-        <div className="flex flex-col items-center gap-4">
-          {NAV_LINKS.map((link) => (
-            <div key={link.label} className="overflow-hidden">
+      {/* Mobile dropdown (normal menu, no fullscreen overlay) */}
+      {menuOpen && (
+        <div className="lg:hidden border-b border-base-border/40 bg-void/80 backdrop-blur">
+          <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 py-3 flex flex-col gap-2">
+            {NAV_LINKS.map((link) => (
               <a
+                key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="fullscreen-menu-link menu-link-item block"
+                className="text-text-secondary hover:text-amber text-sm font-medium uppercase tracking-widest transition-colors duration-300 py-2"
               >
                 {link.label}
               </a>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-        <div className="absolute bottom-10 flex gap-6">
-          {['LinkedIn', 'Twitter', 'Instagram'].map((social) => (
-            <a
-              key={social}
-              href="#"
-              className="text-text-muted hover:text-amber text-xs uppercase tracking-widest transition-colors duration-300"
-            >
-              {social}
-            </a>
-          ))}
-        </div>
-      </div>
-    </>
+      )}
+    </header>
   );
 }
