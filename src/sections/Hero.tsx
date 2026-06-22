@@ -4,8 +4,7 @@ import { gsap } from 'gsap';
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
-  const tagRef = useRef<HTMLParagraphElement>(null);
-  const logoRef = useRef<HTMLHeadingElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -18,16 +17,10 @@ export default function Hero() {
       { opacity: 1, scale: 1, duration: 1.2 }
     )
       .fromTo(
-        tagRef.current,
+        headingRef.current,
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 },
-        '-=0.6'
-      )
-      .fromTo(
-        logoRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 },
-        '-=0.5'
+        '-=0.65'
       )
       .fromTo(
         descRef.current,
@@ -74,30 +67,23 @@ export default function Hero() {
 
         {/* Right Panel - Content */}
         <div className="w-full lg:w-[45%] bg-white flex flex-col justify-center px-6 md:px-10 lg:px-12 py-12 lg:py-0">
-          <p
-            ref={tagRef}
-            className="text-text-secondary text-xs font-medium uppercase tracking-[0.08em] mb-6 opacity-0"
-          >
-            Diversified Global Enterprise
-          </p>
-
           <h1
-            ref={logoRef}
-            className="hero-logo text-[#0a0a0a] font-grotesk font-medium uppercase leading-[0.9] tracking-[-0.02em] opacity-0"
-            data-text="GLOBAL MEDIA WINGS"
+            ref={headingRef}
+            className="text-[#0a0a0a] font-grotesk font-medium uppercase leading-[0.9] tracking-[-0.02em] opacity-0"
             style={{
               fontSize: 'clamp(2.5rem, 10vw, 6rem)',
               maxWidth: '90%',
             }}
           >
-            GLOBAL MEDIA WINGS
+            Building Diversified Ventures
           </h1>
 
           <p
             ref={descRef}
             className="text-text-secondary font-grotesk text-base leading-relaxed max-w-[400px] mt-8 opacity-0"
           >
-            Pioneering excellence across Media, Real Estate, Aviation, Finance, and IT Services. A diversified portfolio driving global business innovation.
+            A diversified enterprise spanning media, precious metals, property, aviation,
+            finance, mobility, technology, construction, and international operations.
           </p>
 
           <div ref={ctaRef} className="flex flex-wrap gap-4 mt-10 opacity-0">

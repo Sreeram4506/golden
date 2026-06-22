@@ -54,10 +54,10 @@ export default function Navigation() {
         }`}
       >
         <div className="flex items-center justify-between px-6 lg:px-10 py-4 max-w-[1400px] mx-auto">
-          <a href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Global Media Wings Logo" className="h-10 w-auto object-contain" />
-            <span className="text-amber font-grotesk font-medium text-xl uppercase tracking-wide hidden sm:block">
-              GMW
+          <a href="#" className="flex items-center gap-3">
+            <img src="/logo.png" alt="Global Media Wings" className="h-10 w-auto object-contain" />
+            <span className="hidden sm:block text-amber font-grotesk font-medium text-lg uppercase tracking-wide">
+              Global Media Wings
             </span>
           </a>
 

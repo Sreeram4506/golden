@@ -46,7 +46,6 @@ export default function About() {
     phase1.add(phase2);
     phase1.repeat(-1);
 
-    // Content entrance animation
     const contentElements = contentRef.current?.querySelectorAll('.about-animate');
     if (contentElements) {
       gsap.fromTo(
@@ -67,7 +66,6 @@ export default function About() {
       );
     }
 
-    // Progress bar
     const progressTween = gsap.to(progressRef.current, {
       scaleX: 1,
       scrollTrigger: {
@@ -90,14 +88,12 @@ export default function About() {
       ref={sectionRef}
       className="relative bg-void border-t border-base-border overflow-hidden"
     >
-      {/* Progress bar */}
       <div
         ref={progressRef}
         className="section-progress"
         style={{ transform: 'scaleX(0)' }}
       />
 
-      {/* SVG Gradient Background */}
       <svg
         ref={svgRef}
         viewBox="0 0 100 100"
@@ -117,7 +113,6 @@ export default function About() {
         <rect x="0" y="0" width="100" height="100" fill="url(#precision-grad)" />
       </svg>
 
-      {/* Content overlay */}
       <div
         ref={contentRef}
         className="relative z-10 py-24 md:py-40 px-6 text-center"
@@ -131,14 +126,17 @@ export default function About() {
         </h2>
 
         <p className="about-animate text-text-secondary font-grotesk text-base leading-relaxed max-w-[640px] mx-auto mt-8">
-          Global Media Wings is a dynamic and diversified enterprise with extensive operations spanning across Media, Real Estate, Aviation, Finance, and IT Services. With a commitment to excellence, our team of seasoned professionals delivers integrated solutions that power global innovation and transform visionary concepts into reality.
+          Global Media Wings is a dynamic and diversified enterprise with operations spanning
+          Media, Precious Metals, Real Estate, Aviation, Finance, Mobility, Technology,
+          Construction, and National as well as International business services. With a
+          commitment to excellence, our team delivers integrated solutions that turn ambitious
+          ideas into real-world results.
         </p>
 
-        {/* Stats row */}
         <div className="about-animate grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 mt-16 max-w-[800px] mx-auto">
           <div className="text-center md:border-r border-base-border px-4">
             <span className="block text-text-primary font-grotesk font-light text-4xl md:text-5xl tracking-tight tabular-nums">
-              9+
+              11+
             </span>
             <span className="block text-text-secondary text-xs uppercase tracking-[0.08em] mt-2">
               Industries Served

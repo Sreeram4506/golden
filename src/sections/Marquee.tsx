@@ -32,8 +32,10 @@ export default function Marquee() {
     };
   }, []);
 
-  const arabicText = 'حلول رفع ثقيلة عالمية المستوى — منذ عام 2001';
-  const englishText = 'Engineering the Extraordinary — Across Land, Sea & Air';
+  const primaryText =
+    'Global Media Wings | Since 2001 | Diversified Business Group | Trusted Across Sectors';
+  const secondaryText =
+    'Building diversified ventures across media, property, finance, aviation, technology, and more';
 
   return (
     <section
@@ -41,38 +43,36 @@ export default function Marquee() {
       className="bg-[#121212] border-t border-b border-base-border overflow-hidden"
     >
       <div ref={contentRef} className="py-12 md:py-16 opacity-0">
-        {/* Arabic line */}
         <div className="overflow-hidden mb-4">
           <div className="marquee-track">
             <span
-              className="font-scheherazade text-text-primary whitespace-nowrap px-8"
-              style={{ fontSize: 'clamp(2rem, 7vw, 4rem)', lineHeight: 1.4 }}
+              className="font-grotesk font-semibold text-text-primary whitespace-nowrap px-8 uppercase tracking-[0.12em]"
+              style={{ fontSize: 'clamp(1rem, 3vw, 1.75rem)', lineHeight: 1.4 }}
             >
-              {arabicText}&nbsp;&nbsp;&nbsp;{arabicText}&nbsp;&nbsp;&nbsp;{arabicText}&nbsp;&nbsp;&nbsp;{arabicText}
+              {primaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{primaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{primaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{primaryText}
             </span>
             <span
-              className="font-scheherazade text-text-primary whitespace-nowrap px-8"
-              style={{ fontSize: 'clamp(2rem, 7vw, 4rem)', lineHeight: 1.4 }}
+              className="font-grotesk font-semibold text-text-primary whitespace-nowrap px-8 uppercase tracking-[0.12em]"
+              style={{ fontSize: 'clamp(1rem, 3vw, 1.75rem)', lineHeight: 1.4 }}
             >
-              {arabicText}&nbsp;&nbsp;&nbsp;{arabicText}&nbsp;&nbsp;&nbsp;{arabicText}&nbsp;&nbsp;&nbsp;{arabicText}
+              {primaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{primaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{primaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{primaryText}
             </span>
           </div>
         </div>
 
-        {/* English line */}
         <div className="overflow-hidden">
           <div className="marquee-track" style={{ animationDirection: 'reverse' }}>
             <span
               className="font-grotesk font-light italic text-text-secondary whitespace-nowrap px-8"
-              style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)' }}
+              style={{ fontSize: 'clamp(1rem, 2.6vw, 1.5rem)' }}
             >
-              {englishText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{englishText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{englishText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{englishText}
+              {secondaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{secondaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{secondaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{secondaryText}
             </span>
             <span
               className="font-grotesk font-light italic text-text-secondary whitespace-nowrap px-8"
-              style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)' }}
+              style={{ fontSize: 'clamp(1rem, 2.6vw, 1.5rem)' }}
             >
-              {englishText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{englishText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{englishText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{englishText}
+              {secondaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{secondaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{secondaryText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{secondaryText}
             </span>
           </div>
         </div>

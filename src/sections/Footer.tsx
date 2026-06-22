@@ -29,10 +29,10 @@ export default function Footer() {
         {/* Top row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Global Media Wings Logo" className="h-10 w-auto object-contain" />
-            <span className="text-amber font-grotesk font-medium text-2xl uppercase tracking-wide">
-              GMW
+          <a href="#" className="flex items-center gap-3">
+            <img src="/logo.png" alt="Global Media Wings" className="h-10 w-auto object-contain" />
+            <span className="text-amber font-grotesk font-medium text-xl uppercase tracking-wide">
+              Global Media Wings
             </span>
           </a>
 
