@@ -132,51 +132,6 @@ export default function Services() {
         </div>
 
         <div className="mt-14 grid gap-6 lg:mt-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.4fr)] lg:items-start">
-          <aside className="lg:sticky lg:top-24">
-            <div className="service-card rounded-[1.5rem] border border-base-border bg-surface/95 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-sm">
-              <p className="text-xs uppercase tracking-[0.18em] text-amber mb-4">Portfolio</p>
-              <h3 className="font-grotesk text-2xl sm:text-3xl font-semibold uppercase tracking-[0.02em] text-text-primary">
-                Mobile-first clarity.
-                <span className="block text-text-secondary">Desktop depth.</span>
-              </h3>
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-text-secondary">
-                Each service is presented as a readable card on mobile and a structured grid on
-                larger screens, so the section stays elegant instead of overcrowded.
-              </p>
-
-              <div className="mt-8 grid grid-cols-3 gap-3">
-                <div className="rounded-2xl border border-base-border bg-void/80 p-4 text-center">
-                  <span className="block text-2xl font-semibold text-text-primary">11</span>
-                  <span className="mt-1 block text-[11px] uppercase tracking-[0.18em] text-text-secondary">
-                    Services
-                  </span>
-                </div>
-                <div className="rounded-2xl border border-base-border bg-void/80 p-4 text-center">
-                  <span className="block text-2xl font-semibold text-text-primary">2</span>
-                  <span className="mt-1 block text-[11px] uppercase tracking-[0.18em] text-text-secondary">
-                    Layouts
-                  </span>
-                </div>
-                <div className="rounded-2xl border border-base-border bg-void/80 p-4 text-center">
-                  <span className="block text-2xl font-semibold text-text-primary">1</span>
-                  <span className="mt-1 block text-[11px] uppercase tracking-[0.18em] text-text-secondary">
-                    System
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-8 rounded-2xl border border-base-border bg-void/70 p-4">
-                <p className="text-[11px] uppercase tracking-[0.18em] text-text-muted">
-                  Built for
-                </p>
-                <p className="mt-2 text-sm sm:text-base text-text-primary leading-relaxed">
-                  quick scanning on small screens, deeper reading on desktop, and clear business
-                  positioning everywhere.
-                </p>
-              </div>
-            </div>
-          </aside>
-
           <div className="grid gap-4 sm:grid-cols-2 xl:gap-5">
             {SERVICES.map((service, index) => (
               <article
