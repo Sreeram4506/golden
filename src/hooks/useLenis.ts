@@ -18,7 +18,7 @@ export function useLenis() {
 
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    gsap.ticker.add((time: number) => {
       lenis.raf(time * 1000);
     });
 
