@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 91%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 91%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 91%;
+    --primary: 43 100% 50%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 0% 91%;
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 43 100% 50%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 43 100% 50%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-void text-text-primary font-grotesk;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  * {
+    @apply border-base-border;
+  }
+}
+
+@layer components {
+  /* VHS Logo Flicker */
+  .hero-logo {
+    position: relative;
+    animation: vhs-logo-flicker 5s infinite linear;
+  }
+
+  .hero-logo::before,
+  .hero-logo::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: inherit;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .hero-logo::before {
+    color: #ff2a2a;
+    clip-path: inset(0 0 100% 0);
+    animation: vhs-red-flicker 5s infinite linear;
+  }
+
+  .hero-logo::after {
+    color: #2a2aff;
+    clip-path: inset(100% 0 0 0);
+    animation: vhs-blue-flicker 5s infinite linear;
+  }
+
+  /* Section progress bar */
+  .section-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: #FFB800;
+    transform-origin: left;
+    z-index: 10;
+  }
+
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 20s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Text wall */
+  .contact-text-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: hidden;
+    margin: 4rem 0;
+  }
+
+  .contact-text-row {
+    display: flex;
+    width: max-content;
+    gap: 0.5rem;
+  }
+
+  .contact-text-block {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s ease;
+  }
+
+  .contact-text-block:hover {
+    transform: scale(1.05);
+  }
+
+  /* Hexagonal team grid */
+  .hexagon {
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    aspect-ratio: 1 / 1.15;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hexagon-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 10, 10, 0.85);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .hexagon:hover .hexagon-overlay {
+    opacity: 1;
+  }
+
+  .hexagon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .hexagon:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Cylinder carousel */
+  .scene-cylinder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 1200px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-cylinder {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    display: flex;
+  }
+
+  .carousel-cell {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    color: #e7e7e7;
+    background: #111111;
+    border: 1px solid #1a1a1a;
+    aspect-ratio: 1 / 1.5;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* Navigation link underline */
+  .nav-link-underline {
+    position: relative;
+  }
+
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #FFB800;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Fullscreen menu */
+  .fullscreen-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(16px);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .fullscreen-menu.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .fullscreen-menu-link {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #e7e7e7;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fullscreen-menu-link:hover {
+    color: #FFB800;
+  }
+
+  /* Service card hover */
+  .service-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 184, 0, 0.3);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Keyframes for VHS effect */
+@keyframes vhs-logo-flicker {
+  0% { transform: translate(0); }
+  85% { opacity: 1; transform: translate(0); }
+  86% { transform: translate(-2px, 2px); }
+  87% { opacity: 0.8; }
+  88% { transform: translate(0); }
+  92% { opacity: 1; }
+  95% { transform: translate(2px, -1px); }
+  96% { opacity: 0.9; }
+  97% { transform: translate(0); }
+  100% { transform: translate(0); }
+}
+
+@keyframes vhs-red-flicker {
+  0% { clip-path: inset(0 0 100% 0); }
+  86% { clip-path: inset(0 0 100% 0); }
+  87% { clip-path: inset(20% 0 60% 0); transform: translate(-2px); }
+  88% { clip-path: inset(0 0 100% 0); }
+  93% { clip-path: inset(60% 0 10% 0); transform: translate(2px); }
+  94% { clip-path: inset(0 0 100% 0); }
+  100% { clip-path: inset(0 0 100% 0); }
+}
+
+@keyframes vhs-blue-flicker {
+  0% { clip-path: inset(100% 0 0 0); }
+  84% { clip-path: inset(100% 0 0 0); }
+  85% { clip-path: inset(40% 0 30% 0); transform: translate(2px); }
+  86% { clip-path: inset(100% 0 0 0); }
+  91% { clip-path: inset(10% 0 70% 0); transform: translate(-2px); }
+  92% { clip-path: inset(100% 0 0 0); }
+  100% { clip-path: inset(100% 0 0 0); }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
