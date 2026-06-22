@@ -131,7 +131,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:mt-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.4fr)] lg:items-start">
+        <div className="mt-14 lg:mt-16">
           <div className="grid gap-4 sm:grid-cols-2 xl:gap-5">
             {SERVICES.map((service, index) => (
               <article
