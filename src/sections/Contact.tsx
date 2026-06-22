@@ -19,7 +19,8 @@ const METALLIC_COLORS = [
 
 const GRID_COLS = 6;
 const GRID_ROWS = 5;
-const TEXT_CONTENT = 'GLOBAL';
+// Removed repeated “GLOBAL” wall; keeps the design but avoids the repeated text.
+const TEXT_CONTENT = '';
 
 function splitText(element: HTMLElement) {
   const text = element.textContent || '';
