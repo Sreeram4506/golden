@@ -38,8 +38,8 @@ export default function Navigation() {
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
             <img src="/logo.png" alt="Global Media Wings" className="h-10 w-auto object-contain" />
-            <span className="hidden sm:block text-amber font-grotesk font-medium text-lg uppercase tracking-wide">
-              Global Media Wings
+            <span className="text-amber font-grotesk font-medium text-lg uppercase tracking-wide">
+              GMW
             </span>
           </a>
 
@@ -85,14 +85,6 @@ export default function Navigation() {
       {menuOpen && (
         <div className="lg:hidden border-b border-base-border/40 bg-void/80 backdrop-blur">
           <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 py-3 flex flex-col gap-2">
-            <a
-              href="#"
-              onClick={(e) => handleNavClick(e, '#')}
-              className="text-text-secondary hover:text-amber text-sm font-medium uppercase tracking-widest transition-colors duration-300 py-2"
-            >
-              GMW
-            </a>
-
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
