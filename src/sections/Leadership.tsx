@@ -5,8 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const TEAM = [
-  { name: 'CH. Trinadh Babu', title: 'C.M.D', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop' },
-  { name: 'J. Venkateshwarlu', title: 'M.D', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop' },
+  { name: 'CH. Trinadh Babu', title: 'C.M.D', image: '/trinad.png' },
+  { name: 'J. Venkateshwarlu', title: 'M.D', image: '/venkata.png' },
 ];
 
 export default function Leadership() {
