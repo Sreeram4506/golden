@@ -10,14 +10,14 @@ const TEAM = [
     title: 'C.M.D',
     image: '/trinad.png',
     description:
-      'As a trusted advocate, CH. Trinadh Babu brings disciplined legal insight and a client-first approach to every matter. As an investor, he focuses on sustainable value creation—identifying opportunities with long-term potential and steering decisions with clarity and confidence. In real estate, his experience reflects a strong commitment to quality development, reliable execution, and customer satisfaction, helping transform visions into real spaces that people are proud to be part of.',
+      'CH. Trinadh Babu serves as a trusted advisor, guiding stakeholders with practical expertise and a clear, problem-solving approach. As an investor, he evaluates opportunities with a focus on long-term strength—balancing risk and growth to support sustainable progress. In the real estate domain, his involvement reflects a commitment to responsible planning, consistent delivery, and quality outcomes, ensuring that projects move forward with confidence and meet the expectations of customers and partners.',
   },
   {
     name: 'J. Venkateshwarlu',
     title: 'M.D',
     image: '/venkata.png',
     description:
-      'J. Venkateshwarlu serves as a trusted advisor, guiding stakeholders with practical expertise and a clear, problem-solving approach. As an investor, he evaluates opportunities with a focus on long-term strength—balancing risk and growth to support sustainable progress. In the real estate domain, his involvement reflects a commitment to responsible planning, consistent delivery, and quality outcomes, ensuring that projects move forward with confidence and meet the expectations of customers and partners.',
+      'As a trusted advocate, J. Venkateshwarlu brings disciplined legal insight and a client-first approach to every matter. As an investor, he focuses on sustainable value creation—identifying opportunities with long-term potential and steering decisions with clarity and confidence. In real estate, his experience reflects a strong commitment to quality development, reliable execution, and customer satisfaction, helping transform visions into real spaces that people are proud to be part of.',
   },
 ];
 
@@ -104,14 +104,15 @@ export default function Leadership() {
                 alt={member.name}
                 loading="lazy"
               />
-              <div className="hexagon-overlay">
-                <h3 className="text-text-primary font-grotesk font-medium text-sm uppercase tracking-wide">
-                  {member.name}
-                </h3>
-                <p className="text-text-secondary text-xs mt-1">
-                  {member.title}
-                </p>
-              </div>
+            </div>
+
+            <div className="mt-4 text-center">
+              <h3 className="text-text-primary font-grotesk font-medium text-sm uppercase tracking-wide">
+                {member.name}
+              </h3>
+              <p className="text-text-secondary text-xs mt-1">
+                {member.title}
+              </p>
             </div>
 
             {member.description ? (
