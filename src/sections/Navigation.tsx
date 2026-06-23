@@ -38,8 +38,11 @@ export default function Navigation() {
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
             <img src="/logo.png" alt="Global Media Wings" className="h-10 w-auto object-contain" />
-            <span className="text-amber font-grotesk font-medium text-lg uppercase tracking-wide">
+            <span className="text-amber font-grotesk font-medium text-lg uppercase tracking-wide sm:hidden">
               GMW
+            </span>
+            <span className="hidden sm:block text-amber font-grotesk font-medium text-lg uppercase tracking-wide">
+              Global Media Wings
             </span>
           </a>
 
