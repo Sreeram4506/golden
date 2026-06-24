@@ -7,6 +7,7 @@ export default function Hero() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const contactBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
@@ -35,6 +36,20 @@ export default function Hero() {
         '-=0.5'
       );
 
+    tl.fromTo(
+      contactBtnRef.current,
+      { y: 0, scale: 1, opacity: 0.9 },
+      { y: -6, scale: 1.02, opacity: 1, duration: 0.6, ease: 'power3.out' },
+      '+=0.1'
+    ).to(contactBtnRef.current, {
+      scale: 1.015,
+      y: -3,
+      duration: 1.2,
+      yoyo: true,
+      repeat: -1,
+      ease: 'sine.inOut',
+    });
+
     return () => {
       tl.kill();
     };
@@ -45,6 +60,14 @@ export default function Hero() {
     const servicesSection = document.querySelector('#services');
     if (servicesSection) {
       servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -93,8 +116,12 @@ export default function Hero() {
             >
               Explore Services
             </button>
-            <button className="bg-transparent text-[#0a0a0a] font-medium text-sm uppercase tracking-wide px-7 py-3 rounded-md border border-[#1a1a1a] hover:border-[#0a0a0a] transition-all duration-300">
-              Download Brochure
+            <button
+              ref={contactBtnRef}
+              onClick={handleContactClick}
+              className="bg-transparent text-[#0a0a0a] font-medium text-sm uppercase tracking-wide px-7 py-3 rounded-md border border-[#1a1a1a] hover:border-[#0a0a0a] transition-all duration-300 hover:scale-[1.02] active:scale-[0.99]"
+            >
+              Contact Us
             </button>
           </div>
         </div>

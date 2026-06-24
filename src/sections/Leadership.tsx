@@ -8,7 +8,7 @@ const TEAM = [
   {
     name: 'CH. Trinadh Babu',
     title: 'C.M.D',
-    image: '/trinad.png',
+    image: '/trinad.jpeg',
     description:
       'CH. Trinadh Babu serves as a trusted advisor, guiding stakeholders with practical expertise and a clear, problem-solving approach. As an investor, he evaluates opportunities with a focus on long-term strength—balancing risk and growth to support sustainable progress. In the real estate domain, his involvement reflects a commitment to responsible planning, consistent delivery, and quality outcomes, ensuring that projects move forward with confidence and meet the expectations of customers and partners.',
   },
@@ -98,8 +98,9 @@ export default function Leadership() {
             key={member.name}
             className="hexagon-wrapper opacity-0"
           >
-            <div className="hexagon group">
+            <div className="hexagon group w-[220px] sm:w-[260px] md:w-[280px] mx-auto">
               <img
+                className="block"
                 src={member.image}
                 alt={member.name}
                 loading="lazy"
